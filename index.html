@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B64ED</title>
+    <style>
+        textarea {
+            margin: auto;
+            width: 50%;
+            height: 50%;
+            display: block;
+        }
+    </style>
+    <script>
+        // on document ready
+        document.addEventListener("DOMContentLoaded", function(event) {
+            // get #in and #out textareas
+            var inText = document.getElementById('in');
+            var outText = document.getElementById('out');
+            // when #in textarea is changed, update #out textarea
+            inText.addEventListener('input', function() {
+                outText.value = btoa(inText.value);
+            });
+            // when #out textarea is changed, update #in textarea
+            outText.addEventListener('input', function() {
+                inText.value = atob(outText.value);
+            });
+        });
+    </script>
+</head>
+<body>
+    <textarea id="in" placeholder="Regular text" ></textarea>
+    <textarea id="out" placeholder="Base64 text" ></textarea>
+</body>
+</html>
